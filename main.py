@@ -1,9 +1,11 @@
 import random
 import telebot
-from telebot import types #для кнопок
+from telebot import  types #для кнопок
+
 f = open('facts.txt', 'r', encoding='UTF-8')
 facts = f.read().split('\n')
 f.close()
+
 f = open('thinks.txt', 'r', encoding='UTF-8')
 thinks = f.read().split('\n')
 f.close()
@@ -15,7 +17,7 @@ def start(m, res=False):
     item2 = types.KeyboardButton("Приказка")
     markup.add(item1)
     markup.add(item2)
-    bot.send_message(m.chat.id, "Натисни одну із кнопку", reply_markup=markup)
+    bot.send_message(m.chat.id, "Натисни одну із кнопок", reply_markup=markup)
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
     if message.text.strip() == 'Факт':
